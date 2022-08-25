@@ -1,0 +1,59 @@
+// fonts config
+@mixin monserrat($weight: 400, $style: normal) {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: $weight;
+    font-style: $style;
+}
+
+@mixin dosis($weight: 400, $style: normal) {
+    font-family: 'Dosis', sans-serif;
+    font-weight: $weight;
+    font-style: $style;
+}
+
+// base styles for inputs
+@mixin input-base {
+    border: none;
+    outline: none;
+    padding: .5rem 1rem;
+}
+
+// Link style base
+@mixin link-base {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+}
+
+// flexbox base declarations
+@mixin flex {
+    display: flex;
+}
+
+@mixin flex-horizontal {
+    @include flex;
+    flex-direction: row;
+}
+
+@mixin flex-vertical {
+    @include flex;
+    flex-direction: column;
+}
+
+@mixin full-screen {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+// text overflow
+@mixin text-overflow($maxWidth: 210px) {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: $maxWidth;
+}
+
+

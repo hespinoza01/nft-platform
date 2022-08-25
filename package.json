@@ -1,0 +1,84 @@
+{
+  "name": "blockchain-test-interview",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Harold Espinoza <haroldesptru@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "watch:sol": "nodemon --watch contracts -e sol --exec \"prettier --write contracts/**/*.sol && hardhat compile\"",
+    "compile:sol": "prettier --write contracts/**/*.sol && hardhat compile",
+    "deploy:sol": "hardhat run ./scripts/deploy.js",
+    "build:sol": "npm-run-all -s clean:sol compile:sol",
+    "build:app": "react-app-rewired build",
+    "build": "npm-run-all -s clean build:sol build:app",
+    "clean:sol": "hardhat clean",
+    "clean:app": "rimraf ./build",
+    "clean": "npm-run-all -s clean:sol clean:app",
+    "start:sol": "npm-run-all -s clean:sol watch:sol",
+    "start:app": "react-app-rewired start",
+    "dev": "npm-run-all -p start:sol start:app",
+    "eject": "react-app-rewired eject"
+  },
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "modern-normalize": "^1.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.19.5",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "redux": "^4.1.0",
+    "web-vitals": "^1.1.2",
+    "web3": "^1.7.3",
+    "@openzeppelin/contracts": "^4.5.0",
+    "chalk": "4.1.2",
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "react-app-rewired": "^2.2.1",
+    "react-blockies": "^1.4.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "node-sass": "^6.0.1",
+    "react-icons": "^4.2.0",
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "@nomiclabs/hardhat-ganache": "^2.0.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
+    "@openzeppelin/hardhat-upgrades": "^1.14.0",
+    "@openzeppelin/test-helpers": "^0.5.15",
+    "ethereum-waffle": "^4.0.0",
+    "ethers": "^5.5.4",
+    "hardhat": "^2.8.4",
+    "hardhat-contract-sizer": "^2.5.1",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.1",
+    "prettier-config-solidity": "^1.7.0",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "rimraf": "^3.0.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
