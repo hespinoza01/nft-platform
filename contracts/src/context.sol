@@ -19,6 +19,20 @@ contract NMContext {
     mapping(address => uint256) _tokenBalance;
     mapping(uint256 => address) _tokenOwner;
 
+    struct _NFTSell {
+        address selledBy;
+        uint256 price;
+        bool exist;
+    }
+
+    mapping(uint256 => _NFTSell) _tokenSell;
+
+    struct _NFT {
+        address owner;
+        int256 price;
+        string uri;
+    }
+
     constructor() {
         owner = msg.sender;
     }
