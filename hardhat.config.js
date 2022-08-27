@@ -3,7 +3,7 @@ require('@openzeppelin/hardhat-upgrades')
 require('@nomiclabs/hardhat-web3')
 require('hardhat-contract-sizer')
 require('dotenv').config()
-
+console.log(process.env.GANACHE_URL)
 // config local blockchain network
 const GANACHE = {
     chainId: parseInt(process.env.GANACHE_CHAIN_ID) || 0,
@@ -11,11 +11,20 @@ const GANACHE = {
     accounts: JSON.parse(process.env.GANACHE_ACCOUNT),
 }
 
+const ROPSTEN = {
+    chainId: parseInt(process.env.ROPSTEN_CHAIN_ID) || 0,
+    url: process.env.ROPSTEN_URL,
+    accounts: JSON.parse(process.env.ROPSTEN_ACCOUNT),
+}
+console.log(process.env, GANACHE, ROPSTEN)
 module.exports = {
     defaultNetwork: 'ganache',
     networks: {
         ganache: {
             ...GANACHE,
+        },
+        ropsten: {
+            ...ROPSTEN,
         },
     },
     solidity: {
