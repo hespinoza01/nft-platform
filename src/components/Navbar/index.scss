@@ -1,0 +1,72 @@
+@import '../../styles/partials/declarations';
+@import '../../styles/partials/mixins';
+
+
+.Navbar {
+    @include flex-horizontal;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    padding: .5rem 2rem;
+    box-shadow: $box-shadow;
+    overflow: hidden;
+
+    &__logo {
+        display: block;
+        height: 8vh;
+        object-fit: contain;
+    }
+
+    &__nav {
+        ul {
+            @include flex-horizontal;
+            list-style: none;
+        }
+
+        &__item {
+            margin-right: 2rem;
+        }
+
+        & .nav--item {
+            text-decoration: none;
+            color: $primary;
+            font-size: 1.15rem;
+        }
+    }
+
+    &__btn {
+        @include input-base;
+        height: 75%;
+        background-color: $primary;
+        border-radius: $border-radius;
+        color: $white;
+        transition: background-color ease .25s, transform ease .25s;
+        transform: scale(1);
+
+        &:hover {
+            background-color: $primaryAlt;
+            transform: scale(1.05);
+        }
+    }
+
+    &__info {
+        @include flex-horizontal;
+        align-items: center;
+
+        & span {
+            display: block;
+            margin-right: 1rem;
+            background-color: $primary;
+            padding: .25rem .75rem;
+            border-radius: $border-radius;
+            color: $white;
+            cursor: pointer;
+        }
+
+        & canvas {
+            width: 7vh !important;
+            height: 7vh !important;
+            border-radius: 100px;
+        }
+    }
+}

@@ -6,19 +6,12 @@
     ::before,
     ::after {
         -webkit-tap-highlight-color: transparent;
-        @include spaces(p 0, m 0);
         font-size: inherit;
         font-weight: inherit;
     }
 
-    *:focus {
-        outline: 2px solid transparent;
-        outline-offset: 2px;
-    }
-
     body {
         @include flex-vertical;
-        @include fonts(size 8, line 12);
         font-family: 'Roboto', sans-serif;
         font-weight: normal;
         min-height: 100vh;
@@ -26,13 +19,12 @@
 
     #root {
         @include flex-vertical;
-        @include palette(bg main base);
         flex-grow: 1;
         min-height: 100vh;
         overflow: hidden;
 
-        @include theme(dark) {
-            @include palette(bg main base-dark);
+        .App {
+            min-height: inherit;
         }
     }
 

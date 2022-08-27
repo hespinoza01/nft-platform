@@ -11,6 +11,7 @@
     align-items: center;
     color: $white;
     padding: 0.5rem 4rem;
+    margin: 0;
     animation: show-alert 0.35s, hide-alert 0.35s 7s forwards;
     z-index: 1000;
 
@@ -23,7 +24,7 @@
     }
 
     &.error {
-        background-color: rgba($primary, 0.98);
+        background-color: rgba($red, 0.98);
     }
 
     &.success {

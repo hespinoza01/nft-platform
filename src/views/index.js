@@ -1,2 +1,5 @@
 import Home from './Home'
-export { Home }
+import Founds from './Founds'
+import MyNFT from './MyNFT'
+
+export { Home, Founds, MyNFT }

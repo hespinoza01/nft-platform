@@ -59,9 +59,7 @@ function Provider({ children, ...props }) {
 
     useEffect(() => {
         contextSubscribe(updatedState => {
-            if (JSON.stringify(updatedState) !== JSON.stringify(state)) {
-                setState(updatedState)
-            }
+            setState(updatedState)
         })
 
         return () => {

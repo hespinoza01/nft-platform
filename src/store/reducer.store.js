@@ -11,6 +11,15 @@ export default function Reducer(state = initialState, action) {
 
     // Verify action reducer type
     switch (type) {
+        case actions.SET_WEB3:
+            return { ...state, web3: payload }
+
+        case actions.SET_WALLET:
+            return { ...state, wallet: payload }
+
+        case actions.SET_TOKEN:
+            return { ...state, token: payload }
+
         default:
             return state
     }

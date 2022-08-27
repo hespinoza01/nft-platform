@@ -15,7 +15,6 @@ import { useLoader } from 'hooks'
 
 // import utils
 import { AppAlert } from 'utils'
-import Service from 'onejustchain'
 
 export default function App() {
     // configuring app loader
@@ -25,7 +24,6 @@ export default function App() {
 
     // Initial config for app
     const initComponent = _ => {
-        console.log(Service)
         enableLoader()
         enableAlerts()
 
@@ -39,9 +37,9 @@ export default function App() {
 
     return (
         <main className='App'>
-            {/* <Router>
+            <Router>
                 <AppRoutes />
-            </Router> */}
+            </Router>
 
             {loader.render()}
         </main>

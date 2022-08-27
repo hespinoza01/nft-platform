@@ -1,0 +1,50 @@
+@import '../../styles/partials/declarations';
+@import '../../styles/partials/mixins';
+
+.Founds {
+    @include view-base;
+    @include flex-horizontal;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 3rem;
+
+    &__item {
+        @include flex-vertical;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+        height: 45%;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+
+        h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: $primary;
+            font-weight: bold;
+            margin-bottom: 1.75rem;
+        }
+
+        input, button {
+            @include input-base;
+            margin-bottom: 1.75rem;
+            border-radius: $border-radius;
+        }
+
+        input {
+            border: 1px solid $gray;
+
+            &:active, &:focus {
+                border-color: $primary;
+            }
+        }
+
+        button {
+            background-color: $primary;
+            color: $white;
+
+            &:disabled {
+                opacity: .45;
+            }
+        }
+    }
+}

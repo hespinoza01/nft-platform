@@ -25,7 +25,6 @@ yarn.lock
 #Hardhat files
 cache
 artifacts
-secrets.json
 
 # testing
 coverage

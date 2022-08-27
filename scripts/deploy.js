@@ -32,15 +32,15 @@ async function _deploy() {
     )
 
     return {
-        abi: MainContract.abi,
         address: Token.address,
+        abi: MainContract.abi,
     }
 }
 
 _deploy()
     .then(data => {
         fs.writeFileSync(
-            path.resolve(__dirname, '../secrets.json'),
+            path.resolve(__dirname, '../src/secrets.json'),
             JSON.stringify(data, null, 2)
         )
         process.exit(0)

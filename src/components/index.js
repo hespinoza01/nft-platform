@@ -4,5 +4,14 @@ import Button from './Button'
 import TextField from './TextField'
 import SelectField from './SelectField'
 import PrivateRoute from './PrivateRoute'
+import Navbar from './Navbar'
 
-export { AppAlert, AppLoader, Button, TextField, SelectField, PrivateRoute }
+export {
+    AppAlert,
+    AppLoader,
+    Button,
+    TextField,
+    SelectField,
+    PrivateRoute,
+    Navbar,
+}

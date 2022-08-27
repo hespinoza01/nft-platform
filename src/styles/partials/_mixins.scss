@@ -18,6 +18,14 @@
     padding: .5rem 1rem;
 }
 
+@mixin view-base {
+    height: 90vh;
+    padding: 2rem 4rem;
+    color: $black;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 // Link style base
 @mixin link-base {
     display: inline-block;
