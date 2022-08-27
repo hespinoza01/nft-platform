@@ -5,7 +5,13 @@ import "./src/balances.sol";
 import "./src/nft.sol";
 
 contract NftMarketplace is NMBalance, NMNft {
-    function buyNft(uint256 tokenID) public payable {
+    constructor() {
+        owner = msg.sender;
+        mintNftBatch(getInitialUris());
+        setPrice(0.15 ether);
+    }
+
+    function buyNft(uint256 tokenID) public {
         require(_tokenOwner[tokenID] != address(0), "nft not found");
         require(
             _tokenOwner[tokenID] == owner || _tokenOwner[tokenID] == address(this),
@@ -26,9 +32,10 @@ contract NftMarketplace is NMBalance, NMNft {
             walletOwner = _tokenSell[tokenID].selledBy;
         }
 
-        require(msg.value == nftPrice, "sent value mismatch with nft price");
+        require(_getBalance(msg.sender) >= nftPrice, "sent value mismatch with nft price");
 
         _safeTransferFrom(nftOwner, msg.sender, tokenID);
+        _decrementBalance(msg.sender, nftPrice);
         _incrementBalance(walletOwner, nftPrice);
 
         if (nftOwner == address(this)) {

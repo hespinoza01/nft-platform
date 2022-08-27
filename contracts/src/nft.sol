@@ -17,9 +17,9 @@ contract NMNft is NMContext {
     function mintNft(string memory uri) public onlyOwner {
         require(_tokenOwner[_tokenID[uri]] == address(0), "token already exist");
 
-        NftCounter = NftCounter.increment();
         _setTokenURI(NftCounter, uri);
         _mint(owner, NftCounter);
+        NftCounter = NftCounter.increment();
     }
 
     /**
@@ -34,9 +34,9 @@ contract NMNft is NMContext {
         uint256[] memory ids = new uint256[](uris.length);
 
         for (uint256 i; i < uris.length; i = i.increment()) {
-            NftCounter = NftCounter.increment();
             ids[i] = NftCounter;
             _setTokenURI(NftCounter, uris[i]);
+            NftCounter = NftCounter.increment();
         }
 
         _mintBatch(owner, ids);
@@ -174,5 +174,69 @@ contract NMNft is NMContext {
 
         _tokenBalance[to] += 1;
         _tokenOwner[id] = to;
+    }
+
+    function getInitialUris() public pure returns (string[] memory) {
+        string[] memory uris = new string[](20);
+        uris[
+            0
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/v1563853559/samples/animals/three-dogs.jpg";
+        uris[
+            1
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/v1563853556/samples/animals/reindeer.jpg";
+        uris[
+            2
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/v1563853555/samples/animals/cat.jpg";
+        uris[
+            3
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/v1563853555/samples/ecommerce/analog-classic.jpg";
+        uris[
+            4
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/c_scale,w_1309/v1563853562/samples/ecommerce/accessories-bag.jpg";
+        uris[
+            5
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/c_scale,w_1151/v1563853561/samples/ecommerce/leather-bag-gray.jpg";
+        uris[
+            6
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/c_scale,w_720/v1563853561/samples/ecommerce/car-interior-design.jpg";
+        uris[
+            7
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/v1563853558/samples/ecommerce/shoes.png";
+        uris[
+            8
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/c_scale,w_960/v1563853563/samples/food/spices.jpg";
+        uris[
+            9
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/v1563853557/samples/food/pot-mussels.jpg";
+        uris[
+            10
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/v1563853556/samples/food/fish-vegetables.jpg";
+        uris[
+            11
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/v1563853555/samples/food/dessert.jpg";
+        uris[
+            12
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/c_scale,w_1080/v1661499741/samples/landscapes/landscape-panorama.jpg";
+        uris[
+            13
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/c_scale,w_1080/v1563853564/samples/landscapes/nature-mountains.jpg";
+        uris[
+            14
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/c_scale,w_1080/v1563853561/samples/landscapes/beach-boat.jpg";
+        uris[
+            15
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/c_scale,w_1080/v1563853560/samples/landscapes/architecture-signs.jpg";
+        uris[
+            16
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/c_scale,w_1080/v1563853558/samples/landscapes/girl-urban-view.jpg";
+        uris[
+            17
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/c_scale,w_1080/v1563853559/samples/people/jazz.jpg";
+        uris[18] = "https://res.cloudinary.com/hespinoza/image/upload/v1563853551/sample.jpg";
+        uris[
+            19
+        ] = "https://res.cloudinary.com/hespinoza/image/upload/c_scale,w_1080/v1564366404/agym_galeriaanimada_haroldespinoza/calculator-close-up-code-907489_qgpobj.jpg";
+
+        return uris;
     }
 }

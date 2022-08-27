@@ -42,7 +42,7 @@ contract NMBalance is NMContext {
     function withdraw(uint256 amount) public payable onlyWithEnoughFounds(amount) {
         _decrementBalance(msg.sender, amount);
 
-        (bool success, ) = address(msg.sender).call{ value: amount }("");
+        (bool success, ) = msg.sender.call{ value: amount }("");
         require(success, "withdraw failed");
 
         emit evtWithdraw(msg.sender, amount);

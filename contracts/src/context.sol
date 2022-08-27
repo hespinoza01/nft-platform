@@ -33,10 +33,6 @@ contract NMContext {
         string uri;
     }
 
-    constructor() {
-        owner = msg.sender;
-    }
-
     /***************
      ** Modifiers **
      ***************/
